@@ -210,7 +210,10 @@ const EverartStudioPage = () => {
                         alt="The Statue Trailer"
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#121212] from-0% via-[#121212]/50 via-50% to-[#121212]/50 to-100% group-hover:from-[#121212]/80 group-hover:via-[#121212]/30 group-hover:to-[#121212]/30 transition-all duration-1000" />
+                    <div
+                        className="absolute inset-0 transition-opacity duration-1000 group-hover:opacity-70"
+                        style={{ background: 'linear-gradient(to top, #121212 0%, rgba(18, 18, 18, 0.5) 50%, rgba(18, 18, 18, 0.5) 100%)' }}
+                    />
                 </div>
 
                 {/* Ambient Blurred Background (Active only when playing) */}
