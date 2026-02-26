@@ -91,13 +91,13 @@ const FeaturedWorks = () => {
       <div className="relative w-full overflow-visible">
         <div
           ref={scrollRef}
-          className="flex gap-8 md:gap-12 overflow-x-auto scrollbar-hide snap-x md:snap-none px-[var(--safe-area)] pb-16 pt-8"
+          className="flex gap-6 md:gap-8 overflow-x-auto scrollbar-hide snap-x md:snap-none pb-16 pt-8"
           style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
             scrollSnapType: 'x mandatory',
-            paddingLeft: 'max(var(--safe-area), calc((100vw - 1440px) / 2 + var(--safe-area)))',
-            paddingRight: 'max(var(--safe-area), calc((100vw - 1440px) / 2 + var(--safe-area)))'
+            paddingLeft: 'max(var(--safe-area), calc((100% - var(--max-width)) / 2 + var(--safe-area)))',
+            paddingRight: 'max(var(--safe-area), calc((100% - var(--max-width)) / 2 + var(--safe-area)))'
           }}
         >
           {portfolioProjects.map((project, index) => (
