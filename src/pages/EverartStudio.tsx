@@ -56,7 +56,7 @@ const EverartStudioPage = () => {
                     >
                         {/* Brand Logo Overlay */}
                         <img
-                            src="https://marcantoniobianco.com/wp-content/uploads/2025/07/MoM-Hpl-Logo-scaled.png"
+                            src="/images/everart/mom_logo.png"
                             alt="Masters of Madness Logo"
                             className="w-full max-w-4xl mx-auto mb-12 brightness-200"
                         />
@@ -288,7 +288,7 @@ const EverartStudioPage = () => {
                             className="relative aspect-[3/4] overflow-hidden rounded-sm bg-zinc-950"
                         >
                             <img
-                                src="https://marcantoniobianco.com/wp-content/uploads/2025/07/Chthulu.jpg"
+                                src="/images/projects/chthulu.jpg"
                                 alt="Cthulhu Visual"
                                 className="w-full h-full object-cover grayscale opacity-80"
                             />

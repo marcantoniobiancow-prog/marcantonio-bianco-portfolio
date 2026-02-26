@@ -18,7 +18,7 @@ const AboutMe = () => {
                         >
                             <div className="relative aspect-[4/5] rounded-[2rem] md:rounded-[3rem] overflow-hidden group">
                                 <img
-                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200"
+                                    src="/images/about_portrait.jpg"
                                     alt="Marcantonio Bianco"
                                     className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                                 />

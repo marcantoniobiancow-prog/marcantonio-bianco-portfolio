@@ -8,42 +8,42 @@ const portfolioProjects = [
     {
         title: "Tranquillo",
         category: "Branding — Chill CBD Oil",
-        image: "https://marcantoniobianco.com/wp-content/uploads/2024/02/tranq_Mosaic-4.jpg",
+        image: "/images/projects/tranq_mosaic.jpg",
     },
     {
         title: "Formularity",
         category: "Web Design — Original complex",
-        image: "https://marcantoniobianco.com/wp-content/uploads/2025/07/Formularity-banner3.jpg",
+        image: "/images/projects/formularity_banner.jpg",
     },
     {
         title: "Everart Studio",
         category: "Creative — Masters of Madness",
-        image: "https://marcantoniobianco.com/wp-content/uploads/2025/07/Chthulu.jpg",
+        image: "/images/projects/chthulu.jpg",
     },
     {
         title: "Clariot",
         category: "Branding — Energy made simple!",
-        image: "https://marcantoniobianco.com/wp-content/uploads/2025/07/Screenshot-2025-07-28-alle-10.37.50.png",
+        image: "/images/projects/everart_screenshot.png",
     },
     {
         title: "Bio Vimea",
         category: "Illustration — Live Your Beauty",
-        image: "https://marcantoniobianco.com/wp-content/uploads/2025/07/Model-1.jpg",
+        image: "/images/projects/model.jpg",
     },
     {
         title: "Mind Mercatis",
         category: "Web Design — Illustrations",
-        image: "https://marcantoniobianco.com/wp-content/uploads/2024/03/Hero-_Home_MM-Portal_comp-copia.png",
+        image: "/images/projects/mm_portal.png",
     },
     {
         title: "Opacity",
         category: "Creative — Dry Like Creativity",
-        image: "https://marcantoniobianco.com/wp-content/uploads/2024/06/Hero_Home_new.jpg",
+        image: "/images/projects/hero_home.jpg",
     },
     {
         title: "Aspritz",
         category: "Branding — Neapolitan Character",
-        image: "https://marcantoniobianco.com/wp-content/uploads/2024/03/Behance-cover_post.jpg",
+        image: "/images/projects/behance_cover.jpg",
     }
 ];
 
