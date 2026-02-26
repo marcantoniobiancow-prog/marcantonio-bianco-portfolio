@@ -211,7 +211,7 @@ const EverartStudioPage = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
                     />
                     <div className="absolute inset-0 bg-[#121212]/50 group-hover:bg-[#121212]/30 transition-colors duration-1000 z-[1]" />
-                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#121212] to-transparent z-[2]" />
+                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black to-transparent z-[2]" />
                 </div>
 
                 {/* Ambient Blurred Background (Active only when playing) */}
