@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 12 80% 55%;
+    /* Orange/Red from Figma #E85731 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 100%;
+
+    --accent: 12 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 12 80% 55%;
+
+    --radius: 1.5rem;
+
+    /* Typography Scale remains same */
+    --font-h1: clamp(3rem, 12vw, 6rem);
+    --font-h2: clamp(2.5rem, 10vw, 4.5rem);
+    --font-h3: clamp(1.75rem, 8vw, 3rem);
+    --font-body: 1.125rem;
+
+    /* Layout Tokens */
+    --max-width: 1440px;
+    --safe-area: clamp(0.75rem, 6vw, 5rem);
+    --section-gap: clamp(6rem, 20vw, 15rem);
+    --stack-gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-primary/50 selection:text-white;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-black;
+  }
+
+  html {
+    background-color: #000000;
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background antialiased overflow-x-hidden;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: var(--font-h1);
+  }
+
+  h2 {
+    font-size: var(--font-h2);
+  }
+
+  h3 {
+    font-size: var(--font-h3);
+  }
+
+  p {
+    margin-bottom: 1.25em;
+    color: #ffffff;
+    /* Explicitly solid white */
+  }
+
+  .text-secondary {
+    color: #ffffff;
+    /* Removed gray */
+  }
+
+  .label-overline,
+  .subtitle-small {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary);
+    /* Use primary for labels instead of gray */
+  }
+}
+
+@layer utilities {
+  .container-main {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--safe-area);
+    padding-right: var(--safe-area);
+  }
+
+  .full-bleed {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .section-spacing {
+    margin-bottom: var(--section-gap);
+  }
+
+  .stack-spacing {
+    margin-bottom: var(--stack-gap);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-[#E85731] via-[#ffffff] to-[#E85731];
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .gradient-blur {
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(232, 87, 49, 0.1) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.5;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full hover:bg-muted-foreground transition-colors;
+}
