@@ -208,9 +208,9 @@ const EverartStudioPage = () => {
                     <img
                         src="https://img.youtube.com/vi/ammdbZ6RvgM/maxresdefault.jpg"
                         alt="The Statue Trailer"
-                        className="w-full h-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
+                    <div className="absolute inset-0 bg-[#121212]/50 group-hover:bg-[#121212]/30 transition-colors duration-1000" />
                 </div>
 
                 {/* Ambient Blurred Background (Active only when playing) */}
