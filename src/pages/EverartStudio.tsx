@@ -36,9 +36,8 @@ const EverartStudioPage = () => {
             {/* Project Hero Section with Video Background */}
             <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
                 {/* YouTube Video Background Background */}
-                <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                    <div className="absolute inset-0 bg-black/40 z-[1]" />
-                    <div className="absolute inset-0 w-full h-full scale-125 md:scale-110">
+                <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250vw] h-[250vh] md:w-[150vw] md:h-[150vh] pointer-events-none z-0 grayscale opacity-50 contrast-125">
                         <ReactPlayer
                             url="https://www.youtube.com/watch?v=yZqi0aXcLi4"
                             playing={true}
@@ -47,8 +46,6 @@ const EverartStudioPage = () => {
                             playsinline={true}
                             width="100%"
                             height="100%"
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] h-[150vh] md:w-[120vw] md:h-[120vh] aspect-video grayscale opacity-50 contrast-125"
-                            style={{ pointerEvents: 'none' }}
                             config={{
                                 youtube: {
                                     playerVars: {
@@ -65,8 +62,10 @@ const EverartStudioPage = () => {
                             } as any}
                         />
                     </div>
+                    {/* Overlays */}
+                    <div className="absolute inset-0 bg-black/40 z-[1]" />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black z-[2]" />
-                    <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-[2]" />
+                    <div className="absolute inset-0 bg-primary/10 mix-blend-overlay z-[3]" />
                 </div>
 
                 <div className="container-main relative z-10 text-center">
