@@ -182,16 +182,16 @@ const EverartStudioPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.2 }}
                                 viewport={{ once: true }}
-                                className="bg-[#121212] p-12 h-full flex flex-col justify-between group hover:bg-[#FFFFFF] transition-all duration-700 ease-in-out"
+                                className="bg-[#121212] p-12 h-full flex flex-col justify-between group hover:bg-[#1C1C1C] transition-all duration-700 ease-in-out"
                             >
-                                <div className="text-6xl font-black tracking-tighter mb-12 text-primary group-hover:text-[#121212]/10 transition-colors duration-500">
+                                <div className="text-6xl font-black tracking-tighter mb-12 text-primary transition-colors duration-500">
                                     {phase.step}
                                 </div>
                                 <div className="space-y-6">
-                                    <h3 className="text-2xl font-black tracking-widest text-[#F4F4F4] group-hover:text-[#121212] transition-colors duration-500">
+                                    <h3 className="text-2xl font-black tracking-widest text-[#F4F4F4] transition-colors duration-500">
                                         {phase.title}
                                     </h3>
-                                    <p className="text-lg text-[#F4F4F4]/60 leading-relaxed font-medium group-hover:text-[#121212]/70 transition-colors duration-500">
+                                    <p className="text-lg text-[#F4F4F4]/60 leading-relaxed font-medium transition-colors duration-500">
                                         {phase.desc}
                                     </p>
                                 </div>
