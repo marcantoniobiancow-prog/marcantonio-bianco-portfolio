@@ -41,7 +41,7 @@ const AboutMe = () => {
                             {/* Photo container — tall portrait */}
                             <div className="relative aspect-[3/4] max-w-sm overflow-hidden rounded-[1.5rem]">
                                 <img
-                                    src="/images/marcantonio_portrait.jpg"
+                                    src="/images/marcantonio_portrait_v2.jpg"
                                     alt="Marcantonio Bianco"
                                     className="w-full h-full object-cover object-top"
                                 />
