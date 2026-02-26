@@ -48,30 +48,6 @@ const portfolioProjects = [
 
 const FeaturedWorks = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const titleContainerRef = useRef<HTMLDivElement>(null);
-  const [paddingOffset, setPaddingOffset] = useState("var(--safe-area)");
-
-  useEffect(() => {
-    const updatePadding = () => {
-      if (titleContainerRef.current) {
-        // Calculates the precise distance from the left edge of the screen to the text
-        const rect = titleContainerRef.current.getBoundingClientRect();
-        const style = window.getComputedStyle(titleContainerRef.current);
-        const paddingLeft = parseFloat(style.paddingLeft);
-
-        // BoundingClientLeft gives us the margin (auto margin space) + any relative offset
-        // Adding the padding gives us the exact X position of the text
-        setPaddingOffset(`${rect.left + paddingLeft}px`);
-      }
-    };
-
-    // Initial calc
-    updatePadding();
-
-    // Update on resize
-    window.addEventListener("resize", updatePadding);
-    return () => window.removeEventListener("resize", updatePadding);
-  }, []);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -90,7 +66,7 @@ const FeaturedWorks = () => {
 
   return (
     <section id="portfolio" className="relative py-32 overflow-hidden bg-black">
-      <div className="container-main mb-16 md:mb-24" ref={titleContainerRef}>
+      <div className="container-main mb-16 md:mb-24">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -115,13 +91,14 @@ const FeaturedWorks = () => {
       <div className="relative w-full overflow-visible">
         <div
           ref={scrollRef}
-          className="flex gap-6 md:gap-8 overflow-x-auto scrollbar-hide snap-x md:snap-none pb-16 pt-8"
+          className="flex gap-6 md:gap-8 overflow-x-auto scrollbar-hide snap-x md:snap-none pb-16 pt-8 focus:outline-none"
           style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
             scrollSnapType: 'x mandatory',
-            paddingLeft: paddingOffset,
-            paddingRight: paddingOffset
+            // Calculates distance matching the main container: max(safe-area, (100vw_without_scrollbar - max-width) / 2 + safe-area)
+            paddingLeft: 'max(var(--safe-area), calc((100% - var(--max-width)) / 2 + var(--safe-area)))',
+            paddingRight: 'max(var(--safe-area), calc((100% - var(--max-width)) / 2 + var(--safe-area)))'
           }}
         >
           {portfolioProjects.map((project, index) => (
