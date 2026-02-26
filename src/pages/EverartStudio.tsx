@@ -38,10 +38,12 @@ const EverartStudioPage = () => {
                     <div className="absolute inset-0 bg-black/40 z-[1]" />
                     <div className="absolute inset-0 w-full h-full scale-125 md:scale-110">
                         <iframe
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180vh] h-[110vh] min-w-full min-h-full aspect-video grayscale opacity-50 contrast-125"
-                            src="https://www.youtube.com/embed/yZqi0aXcLi4?autoplay=1&mute=1&loop=1&playlist=yZqi0aXcLi4&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1&enablejsapi=1"
-                            allow="autoplay; encrypted-media"
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180vh] h-[110vh] min-w-[300vw] min-h-[300vh] md:min-w-full md:min-h-full aspect-video grayscale opacity-50 contrast-125 pointer-events-none"
+                            src="https://www.youtube.com/embed/yZqi0aXcLi4?autoplay=1&mute=1&loop=1&playlist=yZqi0aXcLi4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+                            title="Everart Studio Hero Background"
                             frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
                         />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black z-[2]" />
