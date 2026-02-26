@@ -39,7 +39,7 @@ const EverartStudioPage = () => {
                 <div className="absolute inset-0 z-0 overflow-hidden bg-black">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250vw] h-[250vh] md:w-[150vw] md:h-[150vh] pointer-events-none z-0 grayscale opacity-50 contrast-125">
                         <ReactPlayer
-                            url="https://www.youtube.com/watch?v=yZqi0aXcLi4"
+                            url="https://youtu.be/yZqi0aXcLi4"
                             playing={true}
                             muted={true}
                             loop={true}
