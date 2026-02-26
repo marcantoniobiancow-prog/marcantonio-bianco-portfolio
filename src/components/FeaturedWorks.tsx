@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 
 const portfolioProjects = [
   {
@@ -43,7 +43,7 @@ const portfolioProjects = [
     title: "Aspritz",
     tag: "08 IMAGES — Branding",
     image: "/images/projects/behance_cover.jpg",
-  }
+  },
 ];
 
 const FeaturedWorks = () => {
@@ -52,20 +52,16 @@ const FeaturedWorks = () => {
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const { scrollLeft } = scrollRef.current;
-      const cardWidth = 480; // Estimated card width + gap
-      const scrollToBoundary = direction === "left"
-        ? scrollLeft - cardWidth
-        : scrollLeft + cardWidth;
-
-      scrollRef.current.scrollTo({
-        left: scrollToBoundary,
-        behavior: "smooth"
-      });
+      const cardWidth = 380;
+      const target = direction === "left" ? scrollLeft - cardWidth : scrollLeft + cardWidth;
+      scrollRef.current.scrollTo({ left: target, behavior: "smooth" });
     }
   };
 
   return (
     <section id="portfolio" className="relative py-32 overflow-hidden bg-black">
+
+      {/* Title — inside container-main to set the left margin */}
       <div className="container-main mb-16 md:mb-24">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -87,25 +83,26 @@ const FeaturedWorks = () => {
         </motion.div>
       </div>
 
-      {/* Carousel Container */}
-      <div className="relative w-full overflow-visible">
-        <div
-          ref={scrollRef}
-          className="flex gap-6 md:gap-8 overflow-x-auto scrollbar-hide snap-x md:snap-none pb-16 pt-8 focus:outline-none"
-          style={{
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none',
-            scrollSnapType: 'x mandatory',
-            // Calculates distance matching the main container: max(safe-area, (100vw_without_scrollbar - max-width) / 2 + safe-area)
-            paddingLeft: 'max(var(--safe-area), calc((100% - var(--max-width)) / 2 + var(--safe-area)))',
-            paddingRight: 'max(var(--safe-area), calc((100% - var(--max-width)) / 2 + var(--safe-area)))'
-          }}
-        >
+      {/*
+        Carousel trick:
+        - Outer wrapper has the same left padding as container-main → first card aligns with title
+        - overflow-x-auto on the same wrapper lets it scroll right freely
+        - padding-right is just a bit so the last card doesn't clip
+      */}
+      <div
+        ref={scrollRef}
+        className="overflow-x-auto scrollbar-hide pb-16 pt-8"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          // Safe area = same padding-left as .container-main
+          paddingLeft: "var(--safe-area)",
+        }}
+      >
+        {/* The flex row starts right at the safe-area padding, matching the title */}
+        <div className="flex gap-6 md:gap-8 w-max">
           {portfolioProjects.map((project, index) => (
-            <div
-              key={index}
-              className="snap-start shrink-0"
-            >
+            <div key={index} className="shrink-0">
               <ProjectCard
                 title={project.title}
                 tag={project.tag}
@@ -113,8 +110,8 @@ const FeaturedWorks = () => {
               />
             </div>
           ))}
-          {/* Spacer for ending */}
-          <div className="shrink-0 w-[5vw] md:w-[20vw]" />
+          {/* Trailing spacer */}
+          <div className="shrink-0 w-16" />
         </div>
       </div>
 
