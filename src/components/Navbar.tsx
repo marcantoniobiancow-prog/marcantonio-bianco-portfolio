@@ -29,7 +29,7 @@ const Navbar = () => {
       aria-label="Main Navigation"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? "py-4 bg-background/90 backdrop-blur-xl border-b border-white/5" : "py-8 bg-transparent"}`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-3 md:px-12">
+      <div className="container-main flex items-center justify-between">
         <Link
           to="/"
           className="group flex items-center text-xl font-bold tracking-tight text-white cursor-pointer"
