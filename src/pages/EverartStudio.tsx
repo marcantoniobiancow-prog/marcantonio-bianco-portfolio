@@ -47,10 +47,20 @@ const EverartStudioPage = () => {
                             playsinline={true}
                             width="100%"
                             height="100%"
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180vh] h-[110vh] min-w-[300vw] min-h-[300vh] md:min-w-full md:min-h-full aspect-video grayscale opacity-50 contrast-125 pointer-events-none"
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] h-[150vh] md:w-[120vw] md:h-[120vh] aspect-video grayscale opacity-50 contrast-125"
+                            style={{ pointerEvents: 'none' }}
                             config={{
                                 youtube: {
-                                    playerVars: { showinfo: 0, controls: 0, modestbranding: 1, rel: 0 } as any
+                                    playerVars: {
+                                        showinfo: 0,
+                                        controls: 0,
+                                        modestbranding: 1,
+                                        rel: 0,
+                                        playsinline: 1,
+                                        autoplay: 1,
+                                        mute: 1,
+                                        origin: window.location.origin
+                                    } as any
                                 }
                             } as any}
                         />
