@@ -41,8 +41,7 @@ const ProjectCard = ({ title, tag, image, onClick }: ProjectCardProps) => {
                     src={image}
                     alt={title}
                     loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out 
-                               group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out"
                 />
 
                 {/* Tag badge - top left */}

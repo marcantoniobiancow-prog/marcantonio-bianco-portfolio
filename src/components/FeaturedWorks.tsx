@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const portfolioProjects = [
   {
@@ -48,6 +48,30 @@ const portfolioProjects = [
 
 const FeaturedWorks = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const titleContainerRef = useRef<HTMLDivElement>(null);
+  const [paddingOffset, setPaddingOffset] = useState("var(--safe-area)");
+
+  useEffect(() => {
+    const updatePadding = () => {
+      if (titleContainerRef.current) {
+        // Calculates the precise distance from the left edge of the screen to the text
+        const rect = titleContainerRef.current.getBoundingClientRect();
+        const style = window.getComputedStyle(titleContainerRef.current);
+        const paddingLeft = parseFloat(style.paddingLeft);
+
+        // BoundingClientLeft gives us the margin (auto margin space) + any relative offset
+        // Adding the padding gives us the exact X position of the text
+        setPaddingOffset(`${rect.left + paddingLeft}px`);
+      }
+    };
+
+    // Initial calc
+    updatePadding();
+
+    // Update on resize
+    window.addEventListener("resize", updatePadding);
+    return () => window.removeEventListener("resize", updatePadding);
+  }, []);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
@@ -66,7 +90,7 @@ const FeaturedWorks = () => {
 
   return (
     <section id="portfolio" className="relative py-32 overflow-hidden bg-black">
-      <div className="container-main mb-16 md:mb-24">
+      <div className="container-main mb-16 md:mb-24" ref={titleContainerRef}>
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -96,8 +120,8 @@ const FeaturedWorks = () => {
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
             scrollSnapType: 'x mandatory',
-            paddingLeft: 'max(var(--safe-area), calc((100% - var(--max-width)) / 2 + var(--safe-area)))',
-            paddingRight: 'max(var(--safe-area), calc((100% - var(--max-width)) / 2 + var(--safe-area)))'
+            paddingLeft: paddingOffset,
+            paddingRight: paddingOffset
           }}
         >
           {portfolioProjects.map((project, index) => (
