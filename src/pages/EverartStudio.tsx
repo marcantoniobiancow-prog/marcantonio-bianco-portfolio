@@ -4,8 +4,6 @@ import Contact from "@/components/Contact";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-import ReactPlayerPkg from "react-player";
-const ReactPlayer = ReactPlayerPkg as any;
 
 const EverartStudioPage = () => {
     const navigate = useNavigate();
@@ -38,28 +36,13 @@ const EverartStudioPage = () => {
                 {/* YouTube Video Background Background */}
                 <div className="absolute inset-0 z-0 overflow-hidden bg-black">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250vw] h-[250vh] md:w-[150vw] md:h-[150vh] pointer-events-none z-0 grayscale opacity-50 contrast-125">
-                        <ReactPlayer
-                            url="https://youtu.be/yZqi0aXcLi4"
-                            playing={true}
-                            muted={true}
-                            loop={true}
-                            playsinline={true}
-                            width="100%"
-                            height="100%"
-                            config={{
-                                youtube: {
-                                    playerVars: {
-                                        showinfo: 0,
-                                        controls: 0,
-                                        modestbranding: 1,
-                                        rel: 0,
-                                        playsinline: 1,
-                                        autoplay: 1,
-                                        mute: 1,
-                                        origin: window.location.origin
-                                    } as any
-                                }
-                            } as any}
+                        <iframe
+                            className="w-full h-full"
+                            src="https://www.youtube.com/embed/yZqi0aXcLi4?autoplay=1&mute=1&loop=1&playlist=yZqi0aXcLi4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+                            title="Everart Studio Hero Background"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
                         />
                     </div>
                     {/* Overlays */}
