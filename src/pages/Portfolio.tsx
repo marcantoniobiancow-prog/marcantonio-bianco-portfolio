@@ -8,7 +8,7 @@ const portfolioProjects = [
     {
         title: "Tranquillo",
         category: "Branding — Chill CBD Oil",
-        image: "/images/projects/tranq_mosaic.jpg",
+        image: "/images/projects/tranquillo_hero.png",
     },
     {
         title: "Formularity",

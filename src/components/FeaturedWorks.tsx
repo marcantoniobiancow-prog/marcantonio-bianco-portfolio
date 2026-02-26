@@ -12,7 +12,7 @@ const portfolioProjects = [
   {
     title: "Tranquillo",
     tag: "12 IMAGES — Branding",
-    image: "/images/projects/tranq_mosaic.jpg",
+    image: "/images/projects/tranquillo_hero.png",
   },
   {
     title: "Formularity",
