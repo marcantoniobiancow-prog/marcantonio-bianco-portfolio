@@ -35,14 +35,14 @@ const EverartStudioPage = () => {
             <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
                 {/* YouTube Video Background Background */}
                 <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250vw] h-[250vh] md:w-[150vw] md:h-[150vh] pointer-events-none z-0 grayscale opacity-50 contrast-125">
-                        <iframe
-                            className="w-full h-full"
-                            src="https://www.youtube.com/embed/yZqi0aXcLi4?autoplay=1&mute=1&loop=1&playlist=yZqi0aXcLi4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
-                            title="Everart Studio Hero Background"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0 grayscale opacity-50 contrast-125">
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-[200vw] h-[150vh] md:w-[120vw] md:h-[120vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover"
+                            src="/videos/everart_mom_hpl.mp4"
                         />
                     </div>
                     {/* Overlays */}
