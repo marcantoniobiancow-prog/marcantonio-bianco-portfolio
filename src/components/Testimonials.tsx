@@ -12,6 +12,11 @@ const testimonials = [
     role: "CEO, Trads",
     quote: "Outstanding graphic support for our Amazon listings. Conversions improved significantly."
   },
+  {
+    name: "Sofia Marchetti",
+    role: "CMO, Nexflow",
+    quote: "Marc brought our vision to life with precision and creativity. The brand identity he crafted instantly elevated our presence in the market."
+  },
 ];
 
 const Testimonials = () => (
@@ -60,7 +65,7 @@ const Testimonials = () => (
 
     {/* Desktop: Grid */}
     <div className="container-main hidden md:block">
-      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {testimonials.map((t, i) => (
           <motion.blockquote
             key={t.name}
