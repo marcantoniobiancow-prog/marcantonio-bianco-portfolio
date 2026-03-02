@@ -3,12 +3,40 @@ import Navbar from "@/components/Navbar";
 import Contact from "@/components/Contact";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const EverartStudioPage = () => {
     const navigate = useNavigate();
     const videoRef = useRef<HTMLVideoElement>(null);
+    const heroVideoContainerRef = useRef<HTMLDivElement>(null);
     const [isTrailerPlaying, setIsTrailerPlaying] = useState(false);
+
+    // iOS / mobile fix: React's `muted` JSX prop is NOT rendered as a real HTML
+    // attribute, so browsers block autoplay. We build the <video> imperatively
+    // so the `muted` attribute is guaranteed to be present in the DOM.
+    useEffect(() => {
+        const container = heroVideoContainerRef.current;
+        if (!container) return;
+
+        const video = document.createElement('video');
+        video.src = '/videos/everart_mom_hpl.mp4';
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.setAttribute('muted', '');       // explicit HTML attribute for iOS
+        video.setAttribute('playsinline', ''); // required for inline play on iOS
+        video.playsInline = true;
+        video.className = 'w-[200vw] h-[150vh] md:w-[120vw] md:h-[120vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover';
+        video.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200vw;height:150vh;object-fit:cover;';
+
+        container.appendChild(video);
+        video.play().catch(() => {/* autoplay blocked — silent fail */ });
+
+        return () => {
+            video.pause();
+            container.removeChild(video);
+        };
+    }, []);
 
     const handlePlayVideo = () => {
         setIsTrailerPlaying(true);
@@ -35,16 +63,11 @@ const EverartStudioPage = () => {
             <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
                 {/* YouTube Video Background Background */}
                 <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0 grayscale opacity-50 contrast-125">
-                        <video
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="w-[200vw] h-[150vh] md:w-[120vw] md:h-[120vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover"
-                            src="/videos/everart_mom_hpl.mp4"
-                        />
-                    </div>
+                    {/* Video container — populated imperatively to guarantee muted attribute on iOS */}
+                    <div
+                        ref={heroVideoContainerRef}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0 grayscale opacity-50 contrast-125"
+                    />
                     {/* Overlays */}
                     <div className="absolute inset-0 bg-black/40 z-[1]" />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black z-[2]" />
