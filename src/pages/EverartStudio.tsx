@@ -5,9 +5,6 @@ import { ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 
-const isMobile = () =>
-    /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
 const EverartStudioPage = () => {
     const navigate = useNavigate();
     const heroVideoRef = useRef<HTMLVideoElement>(null);
@@ -24,11 +21,6 @@ const EverartStudioPage = () => {
     }, []);
 
     const handlePlayVideo = () => {
-        // On mobile open YouTube directly — iframe autoplay is blocked by iOS
-        if (isMobile()) {
-            window.open('https://www.youtube.com/watch?v=ammdbZ6RvgM', '_blank');
-            return;
-        }
         setIsTrailerPlaying(true);
     };
 
