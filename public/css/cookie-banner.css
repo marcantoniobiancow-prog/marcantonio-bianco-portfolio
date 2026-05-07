@@ -1,0 +1,240 @@
+/* ==========================================================
+   Cookie Banner GDPR — Marcantonio Bianco Portfolio
+   Design minimale, dark, coerente con un portfolio visual.
+   ========================================================== */
+
+/* ---------- Overlay ---------- */
+
+#mb-cookie-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 99998;
+  transition: opacity 0.3s ease;
+}
+
+#mb-cookie-overlay.mb-cookie-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---------- Banner ---------- */
+
+#mb-cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  background: #111;
+  color: #e5e5e5;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 32px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  transform: translateY(0);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+#mb-cookie-banner.mb-cookie-hidden {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mb-cookie-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.mb-cookie-text {
+  flex: 1 1 480px;
+}
+
+.mb-cookie-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.mb-cookie-desc {
+  margin: 0;
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ---------- Actions ---------- */
+
+.mb-cookie-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.mb-cookie-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.mb-cookie-btn--primary {
+  background: #fff;
+  color: #111;
+}
+
+.mb-cookie-btn--primary:hover {
+  background: #e0e0e0;
+}
+
+.mb-cookie-btn--secondary {
+  background: transparent;
+  color: #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.mb-cookie-btn--secondary:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
+}
+
+.mb-cookie-btn--link {
+  background: none;
+  color: #888;
+  padding: 10px 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.mb-cookie-btn--link:hover {
+  color: #fff;
+}
+
+/* ---------- Preferences panel ---------- */
+
+#mb-cookie-prefs {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  background: #111;
+  color: #e5e5e5;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 32px 36px;
+  width: 90%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#mb-cookie-prefs.mb-cookie-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -48%);
+}
+
+#mb-cookie-prefs .mb-cookie-title {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+/* ---------- Option rows ---------- */
+
+.mb-cookie-option {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mb-cookie-option:last-of-type {
+  border-bottom: none;
+}
+
+.mb-cookie-option label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.mb-cookie-option label strong {
+  color: #fff;
+}
+
+.mb-cookie-option input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mb-cookie-option input[type='checkbox']:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.mb-cookie-option-desc {
+  margin: 4px 0 0 28px;
+  font-size: 12px;
+  color: #777;
+  line-height: 1.5;
+}
+
+#mb-cookie-prefs .mb-cookie-actions {
+  margin-top: 24px;
+  justify-content: flex-end;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  #mb-cookie-banner {
+    padding: 20px 18px;
+  }
+
+  .mb-cookie-inner {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .mb-cookie-actions {
+    flex-direction: column;
+  }
+
+  .mb-cookie-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  #mb-cookie-prefs {
+    padding: 24px 20px;
+    width: 95%;
+  }
+}
