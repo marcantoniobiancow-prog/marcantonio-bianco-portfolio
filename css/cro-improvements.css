@@ -1,0 +1,312 @@
+/* ===================================
+   CRO IMPROVEMENTS — MARCANTONIO BIANCO
+   Implementato: gen 2025
+   Quick wins: CTA, form UX, social proof
+   =================================== */
+
+/* ==================
+   CTA PRIMARIO ABOVE THE FOLD
+   ================== */
+.cta-primary {
+  display: inline-block;
+  padding: 18px 40px;
+  background: #FF6B35;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(255, 107, 53, 0.35);
+  cursor: pointer;
+  border: none;
+  margin-top: 24px;
+}
+
+.cta-primary:hover {
+  background: #E55A28;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.5);
+}
+
+.cta-primary:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(255, 107, 53, 0.4);
+}
+
+/* ==================
+   CTA STICKY MOBILE (appare dopo scroll)
+   ================== */
+.cta-sticky {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9998;
+  animation: slideUpFade 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: none;
+  padding: 16px 32px;
+  background: #FF6B35;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .cta-sticky.visible {
+    display: block;
+  }
+}
+
+@keyframes slideUpFade {
+  0% {
+    transform: translate(-50%, 100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* ==================
+   MENU "GET IN TOUCH" STYLED AS BUTTON
+   ================== */
+nav a[href*="contact"],
+nav a[href*="#contact"],
+nav a.menu-cta,
+header nav a:last-child {
+  background: #FF6B35;
+  color: #ffffff !important;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+nav a[href*="contact"]:hover,
+nav a[href*="#contact"]:hover,
+nav a.menu-cta:hover {
+  background: #E55A28;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+/* ==================
+   FORM IMPROVEMENTS
+   ================== */
+
+/* Nome = obbligatorio visivamente evidente */
+.form-field.required label::after,
+label[for="name"]::after {
+  content: " *";
+  color: #FF6B35;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+/* Company Name = opzionale */
+label[for="company"]::after {
+  content: " (opzionale)";
+  color: #94a3b8;
+  font-weight: 400;
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* Bordo visivo per campi obbligatori */
+input[name="name"],
+input[name="email"],
+textarea[name="message"] {
+  border-left: 4px solid #FF6B35 !important;
+}
+
+input[name="company"] {
+  border-left: 4px solid #e2e8f0 !important;
+}
+
+/* Focus state migliorato */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #FF6B35 !important;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+/* ==================
+   BADGE "RISPONDO ENTRO 24H"
+   ================== */
+.form-response-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-left: 5px solid #0ea5e9;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0c4a6e;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.15);
+}
+
+.form-response-badge::before {
+  content: "⏱";
+  font-size: 22px;
+}
+
+/* ==================
+   MESSAGGIO CONFERMA POST-INVIO
+   ================== */
+.form-success {
+  display: none;
+  padding: 28px;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 3px solid #10b981;
+  border-radius: 12px;
+  margin-top: 24px;
+  text-align: center;
+  animation: successFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-success.visible {
+  display: block;
+}
+
+.form-success::before {
+  content: "✓";
+  display: block;
+  font-size: 56px;
+  color: #10b981;
+  font-weight: 900;
+  margin-bottom: 16px;
+  animation: checkPulse 0.8s ease;
+}
+
+.form-success h3 {
+  font-size: 22px;
+  color: #065f46;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.form-success p {
+  font-size: 16px;
+  color: #047857;
+  margin: 0;
+}
+
+@keyframes successFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes checkPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* ==================
+   SOCIAL PROOF BADGE (es: "100+ progetti dal 2018")
+   ================== */
+.social-proof-badge {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 20px;
+  backdrop-filter: blur(12px);
+  color: inherit;
+  letter-spacing: 0.3px;
+}
+
+.social-proof-badge::before {
+  content: "✦ ";
+  opacity: 0.8;
+}
+
+/* Variante scura per sfondo chiaro */
+.social-proof-badge.dark {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #1e293b;
+}
+
+/* ==================
+   HEADLINE BENEFIT-ORIENTED
+   ================== */
+.hero-headline-benefit {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  .hero-headline-benefit {
+    font-size: 32px;
+  }
+}
+
+/* ==================
+   ERROR VALIDATION STYLING
+   ================== */
+.form-field.error input,
+.form-field.error textarea {
+  border-color: #ef4444 !important;
+  background: #fef2f2;
+}
+
+.form-error-message {
+  display: none;
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.form-field.error .form-error-message {
+  display: block;
+}
+
+/* ==================
+   RESPONSIVE TWEAKS
+   ================== */
+@media (max-width: 640px) {
+  .cta-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .social-proof-badge {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
