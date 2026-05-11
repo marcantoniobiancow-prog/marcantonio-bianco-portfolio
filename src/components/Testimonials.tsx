@@ -30,7 +30,7 @@ const Testimonials = () => (
         className="mb-16 text-left md:text-center"
       >
         <p className="label-overline text-sm mb-3">Testimonials</p>
-        <h2 className="text-4xl md:text-5xl">CLIENT <span className="text-secondary">VOICES.</span></h2>
+        <h2 className="text-4xl md:text-5xl font-black tracking-tighter">CLIENT <span className="text-primary italic">VOICES.</span></h2>
       </motion.div>
     </div>
 
@@ -55,7 +55,7 @@ const Testimonials = () => (
             <footer className="flex items-center gap-4 border-t border-white/5 pt-6">
               <div>
                 <p className="font-bold text-base">{t.name}</p>
-                <p className="text-secondary text-xs uppercase tracking-widest font-medium">{t.role}</p>
+                <p className="text-white/40 text-xs uppercase tracking-widest font-medium">{t.role}</p>
               </div>
             </footer>
           </motion.blockquote>

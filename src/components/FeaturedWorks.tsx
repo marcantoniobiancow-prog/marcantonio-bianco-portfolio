@@ -52,52 +52,41 @@ const FeaturedWorks = () => {
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const { scrollLeft } = scrollRef.current;
-      const cardWidth = 380;
+      const cardWidth = 358; // w-[350px] + gap-8 (32px) ≈ 382, step by one card
       const target = direction === "left" ? scrollLeft - cardWidth : scrollLeft + cardWidth;
       scrollRef.current.scrollTo({ left: target, behavior: "smooth" });
     }
   };
 
   return (
-    <section id="portfolio" className="relative py-32 overflow-hidden bg-black">
+    <section id="portfolio" className="relative pt-24 pb-28 overflow-hidden bg-black">
 
       {/* Title — inside container-main to set the left margin */}
-      <div className="container-main mb-16 md:mb-24">
+      <div className="container-main mb-10 md:mb-14">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12"
+          className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8"
         >
           <div className="max-w-4xl">
-            <p className="text-primary font-bold text-sm mb-6 uppercase tracking-[0.4em]">Visual Archive</p>
+            <p className="text-primary font-bold text-sm mb-4 uppercase tracking-[0.4em]">Visual Archive</p>
             <h2 className="text-6xl md:text-9xl font-black leading-[0.85] tracking-tighter text-white">
               SELECTED<br />WORKS
             </h2>
           </div>
-          <div className="hidden md:block">
-            <p className="text-white text-xs font-black uppercase tracking-[0.3em] opacity-40">
-              Scroll to explore <br />01 — 08 PROJECTS
-            </p>
+          <div className="hidden md:flex flex-col items-end gap-1 pb-2">
+            <p className="text-white/40 text-xs font-bold uppercase tracking-[0.3em]">Scroll to explore</p>
+            <p className="text-white/25 text-xs font-bold uppercase tracking-[0.3em]">01 — 08 Projects</p>
           </div>
         </motion.div>
       </div>
 
-      {/*
-        Carousel trick:
-        - Outer wrapper has the same left padding as container-main → first card aligns with title
-        - overflow-x-auto on the same wrapper lets it scroll right freely
-        - padding-right is just a bit so the last card doesn't clip
-      */}
+      {/* Carousel — carousel-indent aligns first card with the title on every viewport */}
       <div
         ref={scrollRef}
-        className="overflow-x-auto scrollbar-hide pb-16 pt-8"
-        style={{
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-          // Safe area = same padding-left as .container-main
-          paddingLeft: "var(--safe-area)",
-        }}
+        className="overflow-x-auto scrollbar-hide carousel-indent pb-12 pt-2"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {/* The flex row starts right at the safe-area padding, matching the title */}
         <div className="flex gap-6 md:gap-8 w-max">
@@ -116,7 +105,7 @@ const FeaturedWorks = () => {
       </div>
 
       {/* Navigation & Bottom Row */}
-      <div className="container-main mt-16 md:mt-24 flex flex-col md:flex-row justify-between items-center gap-12">
+      <div className="container-main mt-10 md:mt-14 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex items-center gap-16">
           <div className="flex gap-4">
             <button

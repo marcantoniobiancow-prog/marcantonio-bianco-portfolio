@@ -107,8 +107,7 @@
   }
 
   .text-secondary {
-    color: #ffffff;
-    /* Removed gray */
+    color: rgba(255, 255, 255, 0.5);
   }
 
   .label-overline,
@@ -129,6 +128,12 @@
     margin-right: auto;
     padding-left: var(--safe-area);
     padding-right: var(--safe-area);
+  }
+
+  /* Matches the left edge of .container-main content on every viewport width,
+     including screens wider than --max-width where container-main is centered. */
+  .carousel-indent {
+    padding-left: max(var(--safe-area), calc((100vw - var(--max-width)) / 2 + var(--safe-area)));
   }
 
   .full-bleed {

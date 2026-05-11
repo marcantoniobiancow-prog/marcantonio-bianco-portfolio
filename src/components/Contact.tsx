@@ -50,17 +50,19 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Social Logos Section */}
+            {/* Social Logos Section — replace url values with real profile links */}
             <div className="mt-20 flex flex-wrap gap-4 text-white">
               {[
-                { icon: <Instagram className="w-5 h-5" />, name: "Instagram", url: "#" },
-                { icon: <Linkedin className="w-5 h-5" />, name: "LinkedIn", url: "#" },
-                { icon: <WhatsAppIcon />, name: "WhatsApp", url: "#" },
-                { icon: <TelegramIcon />, name: "Telegram", url: "#" }
+                { icon: <Instagram className="w-5 h-5" />, name: "Instagram", url: "https://www.instagram.com/marcantoniobianco" },
+                { icon: <Linkedin className="w-5 h-5" />, name: "LinkedIn", url: "https://www.linkedin.com/in/marcantoniobianco" },
+                { icon: <WhatsAppIcon />, name: "WhatsApp", url: "https://wa.me/39" },
+                { icon: <TelegramIcon />, name: "Telegram", url: "https://t.me/marcantoniobianco" }
               ].map((social) => (
                 <a
                   key={social.name}
                   href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-14 h-14 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-500 group"
                   aria-label={social.name}
                 >
@@ -85,10 +87,11 @@ const Contact = () => {
             <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-1">Name</label>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-1">Name*</label>
                   <input
                     type="text"
                     placeholder="Your name"
+                    required
                     className="w-full bg-black/5 border-none rounded-2xl px-6 py-4 text-black font-bold placeholder:text-black/20 focus:ring-2 focus:ring-primary transition-all"
                   />
                 </div>
@@ -104,10 +107,11 @@ const Contact = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-1">Email</label>
+                <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-1">Email*</label>
                 <input
                   type="email"
                   placeholder="your@mail.com"
+                  required
                   className="w-full bg-black/5 border-none rounded-2xl px-6 py-4 text-black font-bold placeholder:text-black/20 focus:ring-2 focus:ring-primary transition-all"
                 />
               </div>
@@ -131,7 +135,7 @@ const Contact = () => {
 
         <div className="mt-20 md:mt-32 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-10">
-            <span className="text-white text-xs font-black tracking-[0.3em]">© 2024 MARCANTONIO BIANCO</span>
+            <span className="text-white text-xs font-black tracking-[0.3em]">© {new Date().getFullYear()} MARCANTONIO BIANCO</span>
             <span className="text-white text-xs font-black tracking-[0.3em] uppercase">Visual Designer & AI Expert</span>
           </div>
           <div className="flex gap-10 text-white text-[10px] font-bold tracking-[0.2em] uppercase">

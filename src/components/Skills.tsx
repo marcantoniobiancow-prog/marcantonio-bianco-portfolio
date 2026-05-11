@@ -41,7 +41,7 @@ const Skills = () => (
               {p.icon}
             </div>
             <h3 className="text-xl font-black mb-4 text-white">{p.title}</h3>
-            <p className="text-white text-sm leading-relaxed font-medium">{p.description}</p>
+            <p className="text-white/70 text-sm leading-relaxed font-medium">{p.description}</p>
           </motion.div>
         ))}
       </div>
@@ -62,7 +62,7 @@ const Skills = () => (
               {p.icon}
             </div>
             <h3 className="text-2xl font-black mb-6 text-white group-hover:text-black transition-colors">{p.title}</h3>
-            <p className="text-white text-base leading-relaxed font-medium group-hover:text-black transition-colors">{p.description}</p>
+            <p className="text-white/70 text-base leading-relaxed font-medium group-hover:text-black/80 transition-colors">{p.description}</p>
           </motion.div>
         ))}
       </div>

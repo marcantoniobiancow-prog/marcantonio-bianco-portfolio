@@ -17,13 +17,28 @@
 
   var banner = document.createElement('div');
   banner.className = 'cb-overlay';
-  banner.innerHTML =
-    '<p class="cb-text">Questo sito utilizza cookie tecnici per migliorare la navigazione.</p>' +
-    '<div class="cb-actions">' +
-      '<button class="cb-btn cb-accept" id="cb-accept">Accetta</button>' +
-      '<button class="cb-btn cb-reject" id="cb-reject">Rifiuta</button>' +
-    '</div>';
 
+  var text = document.createElement('p');
+  text.className = 'cb-text';
+  text.textContent = 'This website uses technical cookies to improve navigation.';
+
+  var actions = document.createElement('div');
+  actions.className = 'cb-actions';
+
+  var acceptBtn = document.createElement('button');
+  acceptBtn.className = 'cb-btn cb-accept';
+  acceptBtn.id = 'cb-accept';
+  acceptBtn.textContent = 'Accept';
+
+  var rejectBtn = document.createElement('button');
+  rejectBtn.className = 'cb-btn cb-reject';
+  rejectBtn.id = 'cb-reject';
+  rejectBtn.textContent = 'Decline';
+
+  actions.appendChild(acceptBtn);
+  actions.appendChild(rejectBtn);
+  banner.appendChild(text);
+  banner.appendChild(actions);
   document.body.appendChild(banner);
 
   function dismiss(value) {
@@ -33,6 +48,6 @@
     setTimeout(function() { banner.remove(); }, 350);
   }
 
-  document.getElementById('cb-accept').addEventListener('click', function() { dismiss('accepted'); });
-  document.getElementById('cb-reject').addEventListener('click', function() { dismiss('rejected'); });
+  acceptBtn.addEventListener('click', function() { dismiss('accepted'); });
+  rejectBtn.addEventListener('click', function() { dismiss('rejected'); });
 })();

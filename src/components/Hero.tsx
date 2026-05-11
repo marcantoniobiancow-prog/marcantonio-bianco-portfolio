@@ -51,7 +51,7 @@ const Hero = () => {
               <h2 className="text-2xl md:text-4xl font-extrabold text-white mb-4 md:mb-8 leading-[1.1]">
                 Design meets Intelligence.
               </h2>
-              <p className="text-white text-base md:text-xl leading-relaxed font-normal">
+              <p className="text-white/75 text-base md:text-lg leading-relaxed font-normal max-w-sm">
                 Expert in crafting high-end digital experiences using premium AI tools and traditional design mastery. From Shopify stores to complete Brand Identities.
               </p>
             </motion.div>
